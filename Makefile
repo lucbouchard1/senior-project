@@ -8,3 +8,6 @@ all: $(PAPER_PDF)
 
 $(PAPER_PDF): $(PAPER_SRC)
 	pandoc -B $(BEFORE_BODY) $(FLAGS) -s -f markdown -t latex -o $@ $^
+
+clean:
+	rm -fr $(PAPER_PDF)
