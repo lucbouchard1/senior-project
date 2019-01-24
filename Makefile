@@ -1,4 +1,3 @@
-
 PAPER_SRC = paper/title.md paper/s1-intro.md
 PAPER_PDF = paper.pdf
 FLAGS = --toc 
