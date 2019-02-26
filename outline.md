@@ -1,10 +1,19 @@
 Focus on kalman filtering, algorithm, implementation, and results
 
-# Introduction (2 Pages)
+# Introduction/Statement of Problem (2 Pages)
+   - Intro Paragraphs
+   - Background
+      - History of CubeSat and PolySat Lab
+   - Exocube 1
+      - Explain why Exocube 1 ADCS is no good, including how it was specific to the mission. Explain failure.
+   - Exocube 2
+      - Explain goals within Exocube 2 (explain determination requirements here)
+      - Explain how we want to do more testing
+   - Generalizing the Software
+      - Explain how we want the software developed to Exocube 2 to scale to all spacecraft.
+
    - Explain CubeSats/PolySat
    - Introduce ExoCube and mission requirements
-
-# Statement of Problem (2 pages)
    - Many CubeSats need to do attitude determination to meet mission requirements
       - Often have pointing requirements
    - Kalman filtering allows converting noisy sensor measurements into accurate attitude estimates
