@@ -5,11 +5,11 @@ Attitude determination and control (ADC) software discerns and corrects the orie
 
 ## Background
 
-CubeSats are 10 cm cube spacecraft that began as a collaborative effort between Dr. Jordi Puig-Suari of Cal Poly and Dr. Bob Twiggs of Stanford University in 1999. Puig-Suari and Twigges sought to reduce small satellite development time and cost by providing a rigorous mechanical standard that, if properly met, ensured satellites could fly on any launch vehicle with a CubeSat at no risk to other payloads on the same launch.
+CubeSats are 10 cm cube spacecraft that began as a collaborative effort between Dr. Jordi Puig-Suari of Cal Poly and Dr. Bob Twiggs of Stanford University in 1999. Puig-Suari and Twiggs sought to reduce small satellite development time and cost by providing a rigorous mechanical standard that, if properly met, ensured satellites could fly on any launch vehicle with a CubeSat deployer at no risk to other payloads on the same launch.
 
 The Cal Poly CubeSat Lab, also known as PolySat, has been developing CubeSats since 2001, steadily advancing it's technical capability with each completed mission. However, one capability that has eluded PolySat since its founding is on-orbit attitude estimation.
 
-An attempt to support this capability was made for PolySat's ExoCube mission (Mehrparvar 2013); however, ExoCube suffered an antenna deployment failure that severely limited potential operations, causing ADC validation to be descoped. Futhermore, 
+An attempt to support this capability was made for PolySat's ExoCube mission [@arash]; however, ExoCube suffered an antenna deployment failure that severely limited potential operations, causing ADC validation to be descoped. Futhermore, the software attitude determination software developed for exocube was 
 
 \begin{center}
 \begin{math}
@@ -20,3 +20,6 @@ An attempt to support this capability was made for PolySat's ExoCube mission (Me
 \newpage
 
 Wow look at that! Check out the [intro section](#introduction)
+
+\newpage
+# References

@@ -1,0 +1,17 @@
+[
+  {
+    "id": "arash",
+    "author": [
+      {
+        "family": "Mehrparvar",
+        "given": "Arash"
+      }
+    ],
+    "issued": {
+      "date-parts": [[ 2013, 11 ]]
+    },
+    "publisher": "California Polytechnic State University, San Luis Obispo",
+    "title": "Attitude Estimation for a Gravity Gradient Momentum Biased Nanosatellite",
+    "type": "article"
+  }
+]
