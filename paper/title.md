@@ -1,5 +1,5 @@
 ---
-title: Building Low-Cost, Reusable, and Testable Attitude Estimation Software for CubeSats
+title: Low-Cost, Reusable, and Testable Attitude Estimation Software for CubeSats
 author:
     - Luc Bouchard
 date: \today{}

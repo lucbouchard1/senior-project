@@ -1,46 +1,51 @@
 [
-  {
-    "id": "arash",
-    "author": [
-      {
-        "family": "Mehrparvar",
-        "given": "Arash"
-      }
-    ],
-    "issued": {
-      "date-parts": [[ 2013, 11 ]]
-    },
-    "publisher": "California Polytechnic State University, San Luis Obispo",
-    "title": "Attitude Estimation for a Gravity Gradient Momentum Biased Nanosatellite",
-    "type": "thesis"
-  },
-  {
-   "id": "cubesat",
-   "author": [
-     {
-       "given": "Cal Poly CubeSat Lab"
-     }
-   ],
-   "issued": {
-     "date-parts": [[ 2014, 2 ]]
+   {
+      "id": "sellers",
+      "author": [
+         {
+            "family": "Sellers",
+            "given": "Ryan"
+         }
+      ],
+      "issued": {"date-parts": [[ 2013, 3 ]]},
+      "publisher": "California Polytechnic State University, San Luis Obispo",
+      "title": "A Gravity Gradient, Momentum-Biased Attitude Control System for a CubeSat",
+      "type": "thesis"
    },
-   "publisher": "California Polytechnic State University, San Luis Obispo",
-   "title": "CubeSat Design Specification Rev. 13",
-   "type": "article"
+   {
+      "id": "arash",
+      "author": [
+         {
+            "family": "Mehrparvar",
+            "given": "Arash"
+         }
+      ],
+      "issued": {"date-parts": [[ 2013, 11 ]]},
+      "publisher": "California Polytechnic State University, San Luis Obispo",
+      "title": "Attitude Estimation for a Gravity Gradient Momentum Biased Nanosatellite",
+      "type": "thesis"
+   },
+   {
+      "id": "cubesat",
+      "author": [{ "literal": "Cal Poly CubeSat Lab" }],
+      "issued": {"date-parts": [[ 2014, 2 ]]},
+      "publisher": "California Polytechnic State University, San Luis Obispo",
+      "title": "CubeSat Design Specification Rev. 13",
+      "type": "article"
    },
    {
       "id": "saunders",
       "author": [
-        {
-         "family": "Saunders",
-         "given": "Alex"
-        }
+         {
+            "family": "Saunders",
+            "given": "Alex"
+         }
       ],
       "issued": {
-        "date-parts": [[ 2016, 4 ]]
+         "date-parts": [[ 2016, 4 ]]
       },
       "publisher": "CubeSat Developers Workshop",
       "title": "A Failure Analysis of the Exocube CubeSat",
       "type": "article"
-      }
+   }
 ]

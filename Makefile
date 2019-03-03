@@ -1,4 +1,4 @@
-PAPER_SRC = paper/title.md paper/s1-intro.md
+PAPER_SRC = paper/title.md paper/s1-intro.md paper/references.md
 PAPER_PDF = paper.pdf
 FLAGS = --toc 
 GEOM = -V geometry:margin=1in
