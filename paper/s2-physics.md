@@ -2,7 +2,7 @@
 
 ## Reference Frames
 
-Three reference frames will be utilized throughout this paper, the earth-centered inertial (ECI) frame, the local vertical local horizontal (LVLH) frame, and the body frame. Their definitions follow, and figure \ref{frames} shows 2D illustrations of the frames.
+Three reference frames will be utilized throughout this paper, earth-centered inertial (ECI), local vertical local horizontal (LVLH), and body. Their definitions follow, and figure \ref{frames} shows 2D illustrations of the frames.
 
 ### ECI
 
@@ -17,13 +17,3 @@ The LVLH frame is an Earth centered, orbit based, and rotating frame. The origin
 The body frame is aligned geometrically with the spacecraft. The orthogonal set of axes is defined with the origin at the geometric center of the 3U structure with $X_{Body}$, $Y_{Body}$, and $Z_{Body}$ axes normal to the X, Y, and Z sides of the CubeSat as defined by the CubeSat Standard.
 
 ![2D depictions of all three reference frames.\label{frames}](paper/img/frames.pdf){ width=50% }
-
-\begin{center}
-\begin{math}
-   x = 24
-\end{math}
-\end{center}
-
-\newpage
-
-Wow look at that! Check out the [intro section](#introduction)
