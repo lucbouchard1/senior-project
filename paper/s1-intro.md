@@ -17,12 +17,3 @@ Ions and neutral particles will impact Exocube 2's Ion Neutral Mass Spectrometer
 
 To sample full velocity distribution, ExoCube 2 will point the aperture of the INMS along the orbital velocity vector of the spacecraft (ram facing direction). If the vector normal to the plane of the aperture is at an angle relative to the ram facing direction, the measured velocity distribution will be skewed, and the species could be misidentified [@sellers]. To torque the spacecraft into the ram facing direction, the attitude of the spacecraft must fist be determined. The algorithm behind this initial step is the topic of this paper.
 
-\begin{center}
-\begin{math}
-   x = 24
-\end{math}
-\end{center}
-
-\newpage
-
-Wow look at that! Check out the [intro section](#introduction)

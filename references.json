@@ -47,5 +47,21 @@
       "publisher": "CubeSat Developers Workshop",
       "title": "A Failure Analysis of the Exocube CubeSat",
       "type": "article"
+   },
+   {
+      "id": "curtis",
+      "author": [
+         {
+            "family": "Curtis",
+            "given": "Howard D."
+         }
+      ],
+      "issued": {
+         "date-parts": [[ 2010 ]]
+      },
+      "publisher-place": "Burlington",
+      "publisher": "Elsevier Ltd.",
+      "title": "Orbital Mechanics for Engineering Students",
+      "type": "book"
    }
 ]
