@@ -17,3 +17,29 @@ The LVLH frame is an Earth centered, orbit based, and rotating frame. The origin
 The body frame is aligned geometrically with the spacecraft. The orthogonal set of axes is defined with the origin at the geometric center of the 3U structure with $X_{Body}$, $Y_{Body}$, and $Z_{Body}$ axes normal to the X, Y, and Z sides of the CubeSat as defined by the CubeSat Standard.
 
 ![2D depictions of all three reference frames.\label{frames}](paper/img/frames.pdf){ width=50% }
+
+## Rigid Body Dynamics
+
+We start with Euler's equation for rotational motion, which states that:
+
+\begin{equation} \label{euler}
+\dot{\vec{H}} + (\vec{\omega} \times \vec{H}) = \vec{M}_{net}
+\end{equation}
+
+where $\vec{H}$ is the angular momentum vector of the body in the body frame, $\vec{\omega}$ is the angular velocity vector of the body frame with respect to an inertial frame, and $\vec{M}_{net}$ is the net torque on the body in the same inertial frame. Note that $\vec{H}$ is given by:
+
+\begin{equation}
+\vec{H} = I\vec{\omega}
+\end{equation}
+
+where I is the inertia matrix of the body. If the body frame is aligned with the principle axes of the body, then the inertia matrix becomes diagonal. Assuming the principle moments of inertia are given by $\lambda_x$, $\lambda_y$, and $\lambda_z$, equation (\ref{euler}) can be converted into component form:
+
+\begin{equation}
+\begin{array}{l}
+\lambda_x\dot{\omega}_x - (\lambda_y - \lambda_z)\omega_y\omega_z = M_x \\
+\lambda_y\dot{\omega}_y - (\lambda_z - \lambda_x)\omega_z\omega_x = M_x \\
+\lambda_z\dot{\omega}_z - (\lambda_x - \lambda_y)\omega_x\omega_y = M_x
+\end{array}
+\end{equation}
+
+## Quaternion Kinematics
