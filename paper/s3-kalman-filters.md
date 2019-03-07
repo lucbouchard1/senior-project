@@ -1,0 +1,6 @@
+
+# Kalman Filter
+
+In determining the attitude of a spacecraft, several challenges must be overcome to get a stable and consistent estimate. The most obvious of these challenges is noise in the magnetometer and solar angle sensor measurements. The spacecraft's magnetometers, while being limited in resolution for one, are also constantly being exposed to magnetic field fluctuations resulting from surrounding electronics. On top of this, for magnetic field measurements to useful in an attitude estimate, they must be compared to a reference for the earth's magnetic field at the measurement location, which has it's own associated uncertainty. Solar angle sensors suffer from similar uncertainties, but the have added challenge of being unusable when the sun is eclipsed by the earth. Thus, the determination algorithm must be able to accommodate the spontaneous loss of these measurements.
+
+To solve this challenges, an Extended Kalman Filter (EKF) was designed an implemented. Kalman Filters use bayesian statistics to combine noisy sensor readings with mathematical models of a system [kalman filter book].

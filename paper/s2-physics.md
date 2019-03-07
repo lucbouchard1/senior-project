@@ -20,7 +20,7 @@ The body frame is aligned geometrically with the spacecraft. The orthogonal set 
 
 ## Quaternions
 
-This paper will use quaternions to represent the spacecraft attitude. Quaternions are four element vectors that can be used to represent a frame rotation. Thus the spacecraft's attitude will be represented as the frame transformation from ECI to Body, or LVLH to Body. In this paper, the last element of the four element vector will be the scalar element, and the first three will be the vector element. They will be notated as follows:
+This paper will use quaternions to represent spacecraft attitude. Quaternions are four element vectors that can be used to represent a frame rotation. Thus the spacecraft's attitude will be represented as the frame transformation from ECI to body, or LVLH to body. In this paper, the last element of the four element vector will be the scalar component, and the first three will be the vector component. They will be notated as follows:
 
 \begin{equation}
 q = [q_i, q_j, q_k, q_r] = [\vec{q}, q_r]
