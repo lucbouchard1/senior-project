@@ -91,3 +91,27 @@ It is approximately given by:
 \begin{equation}
 H \approx \frac{\partial \vec{h}(\vec{x})}{\partial \vec{x}}
 \end{equation}
+
+The equations described above are used in the standard EKF algorithm [@kalman]:
+
+#### Predict
+\begin{equation}
+\vec{x_-} = \vec{x}_+ + \vec{f}(\vec{x}_+)dt
+\end{equation}
+\begin{equation}
+P_- = F P_+ F^T + Q
+\end{equation}
+
+#### Update
+
+\begin{equation}
+K = P_-H^T(HP_-H^T + R)^{-1}
+\end{equation}
+\begin{equation}
+P_+ = (1 - KH)P_-
+\end{equation}
+\begin{equation}
+\vec{x}_+ = \vec{x}_- + K(\vec{z} - \vec{h})
+\end{equation}
+
+where the $+$ and $-$ symbols denote the aposteriori (posterior) and apriori (prior) states respectively, $K$ is the Kalman gain matrix, $R$ is the sensor noise matrix, and $P$ is the state covariance matrix.
