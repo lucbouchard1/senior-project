@@ -3,16 +3,34 @@
 
 In determining the attitude of a spacecraft, several challenges must be overcome to get a stable and consistent estimate. The most obvious of these challenges is noise in the magnetometer and solar angle sensor measurements. The spacecraft's magnetometers, while being limited in resolution for one, are also constantly being exposed to magnetic field fluctuations resulting from surrounding electronics. On top of this, for magnetic field measurements to useful in an attitude estimate, they must be compared to a reference for the earth's magnetic field at the measurement location, which has it's own associated uncertainty. Solar angle sensors suffer from similar uncertainties, but the have added challenge of being unusable when the sun is eclipsed by the earth. Thus, the determination algorithm must be able to accommodate the spontaneous loss of these measurements.
 
-To solve this challenges, an Extended Kalman Filter (EKF) was designed and implemented. Kalman Filters use Bayesian statistics to combine noisy sensor readings with a mathematical model of the system in question [@kalman]. The filter used in this work uses a seven-dimensional state vector, $\vec{x}$ given by:
+To solve this challenges, an Extended Kalman Filter (EKF) was designed and implemented. Kalman Filters use Bayesian statistics to combine noisy sensor readings with a mathematical model of the system in question [@kalman].
+
+## Dynamics Model
+
+The filter used in this work uses a seven-dimensional state vector, $\vec{x}$ given by:
 
 \begin{equation}
 \vec{x} = (\omega_x, \omega_y, \omega_z, q_s, q_i, q_j, q_k)
 \end{equation}
 
-where the angular velocities are of the body frame with respect to ECI and the quaternion values rotate from ECI to body. The predict step of the kalman filter is accomplished by propagating the time derivative of the state vector using the Euler method. This equation is derived using equations \ref{rotation} and \ref{quaternion}:
+where the angular velocities are of the body frame with respect to ECI and the quaternion values rotate from ECI to body. We assume that the dynamics of the system can be described as:
 
 \begin{equation}
-\dot{\vec{x}} = \vec{f}(\vec{x}) = \begin{pmatrix}
+\dot{\vec{x}} = \vec{f}(\vec{x}) + \vec{w}
+\end{equation}
+
+where $\vec{f}(\vec{x})$ is a potentially nonlinear function of the attitude state vector, and $\vec{w}$ is a vector that represents any force contributions that are not modeled or are simply random (for example, a spontaneous increase in solar pressure). This equation of motion can be propagated using the Euler or RK methods. The $\vec{w}$ contribution is obviously ignored when propagating attitude state.
+
+The system dynamics can also be described in state-space (discrete-space) as:
+
+\begin{equation}
+\vec{x}_{k} = F\vec{x}_{k-1} + \vec{w}
+\end{equation}
+
+where $F$ is the state transition matrix, as it transitions the system from the $`k-1`$ state to the $`k`$ state. It is given by the matrix exponential. In this work, the predict step of the kalman filter is accomplished by propagating the dynamics using the Euler method. Using equations \ref{rotation} and \ref{quaternion}, we find the following equation for $\vec{f}(\vec{x})$:
+
+\begin{equation}
+\dot{\vec{x}} \approx \vec{f}(\vec{x}) = \begin{pmatrix}
             \dot{\omega_0} \\
             \dot{\omega_1} \\
             \dot{\omega_2} \\
@@ -31,20 +49,45 @@ where the angular velocities are of the body frame with respect to ECI and the q
                         \end{pmatrix}
 \end{equation}
 
-Note that the above assumes the body frame is aligned with the spacecraft's principle axes and that there are no control torques. Since this paper is focused on determination, we will ignore control torques. The nonlinear terms in the above equation is what motivates using a EKF over a generic linear Kalman filter. The discrete state transition matrix, $F$, for this system is approximately given by:
+Note that the above assumes the body frame is aligned with the spacecraft's principle axes and that there are no control torques. Since this paper is focused on determination, we will ignore control torques. The state transition matrix, $F$, for this system is approximately given by:
 
 \begin{equation}
-F \approx I + \frac{\partial\vec{f}(\vec{x}_+)}{\partial\vec{x}}dt
+F \approx I + \frac{\partial\vec{f}(\vec{x}_{k-1})}{\partial\vec{x}}dt
 \end{equation}
 
-where $I$ is the identity matrix and $\vec{x}_+$ is the state vector of the previous current state, and $dt$ is the change in time between the current state and the next state. The measurement vector of the EKF, $\vec{z}$ is given by:
+where $I$ is the identity matrix and $dt$ is the change in time between the $k-1$ state and the $k$ state.
+
+## Measurement Model
+
+The measurement vector of the EKF, $\vec{z}$ is given by:
 
 \begin{equation}
 \vec{z} = (b_x, b_y, b_z, s_x, s_y, s_z)
 \end{equation}
 
-where $\vec{b} = (b_x, b_y, b_z)$ is the magnetic field measurement in body and $\vec{s} = (s_x, s_y, s_z)$ is the solar vector measurement in body. The measurement model, $\vec{h}(\vec{x})$ is given by:
+where $\vec{b} = (b_x, b_y, b_z)$ is the magnetic field measurement and $\vec{s} = (s_x, s_y, s_z)$ is the solar vector measurement all expressed in the body frame. We assume measurements made by the spacecraft at a particular attitude can be described by the following:
 
 \begin{equation}
-\vec{z} = \vec{h}(\vec{x}) = 
+\vec{z} = \vec{h}(\vec{x}) + \vec{v}
+\end{equation}
+
+where $\vec{h}(\vec{x})$ computes the expected sensor readings from the state vector, and $\vec{v}$ is a random vector that describes uncertainties in sensor readings. The measurement model, $\vec{h}(\vec{x})$ is given by:
+
+\begin{equation}
+\vec{z} \approx \vec{h}(\vec{x}) = \begin{pmatrix}
+R_{body\leftarrow eci} & 0 \\
+0 & R_{body\leftarrow eci} \\
+\end{pmatrix} \vec{z}_{ECI}
+\end{equation}
+
+where $R_{body\leftarrow eci}$ is the rotation matrix that rotates from ECI to body and $\vec{z}_{ECI}$ is the measurement vector in ECI, given by some reference model that depends only on the position of the spacecraft, and not the attitude. The measurement matrix, $H$, is defined as the matrix that satisfies the following:
+
+\begin{equation}
+\vec{z} = H\vec{x} + \vec{v}
+\end{equation}
+
+It is approximately given by:
+
+\begin{equation}
+H \approx \frac{\partial \vec{h}(\vec{x})}{\partial \vec{x}}
 \end{equation}

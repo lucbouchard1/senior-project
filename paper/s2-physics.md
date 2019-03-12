@@ -65,13 +65,13 @@ The transformed vector is given by the vector component of the quaternion $v'$. 
 We start with Euler's equation for rotational motion, which states that:
 
 \begin{equation} \label{euler}
-\dot{\vec{H}} + (\vec{\omega} \times \vec{H}) = \vec{M}_{net}
+\dot{\vec{L}} + (\vec{\omega} \times \vec{L}) = \vec{M}_{net}
 \end{equation}
 
-where $\vec{H}$ is the angular momentum vector of the body in the body frame, $\vec{\omega}$ is the angular velocity vector of the body frame with respect to an inertial frame, and $\vec{M}_{net}$ is the net torque on the body in the same inertial frame. Note that $\vec{H}$ is given by:
+where $\vec{L}$ is the angular momentum vector of the body in the body frame, $\vec{\omega}$ is the angular velocity vector of the body frame with respect to an inertial frame, and $\vec{M}_{net}$ is the net torque on the body in the same inertial frame. Note that $\vec{L}$ is given by:
 
 \begin{equation}
-\vec{H} = I\vec{\omega}
+\vec{L} = I\vec{\omega}
 \end{equation}
 
 where I is the inertia matrix of the body. If the body frame is aligned with the principle axes of the body, then the inertia matrix becomes diagonal. Assuming the principle moments of inertia are given by $\lambda_x$, $\lambda_y$, and $\lambda_z$, equation (\ref{euler}) can be converted into component form:
