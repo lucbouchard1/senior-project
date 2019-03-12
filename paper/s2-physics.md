@@ -76,7 +76,7 @@ where $\vec{H}$ is the angular momentum vector of the body in the body frame, $\
 
 where I is the inertia matrix of the body. If the body frame is aligned with the principle axes of the body, then the inertia matrix becomes diagonal. Assuming the principle moments of inertia are given by $\lambda_x$, $\lambda_y$, and $\lambda_z$, equation (\ref{euler}) can be converted into component form:
 
-\begin{equation}
+\begin{equation} \label{rotation}
 \begin{array}{l}
 \lambda_x\dot{\omega}_x - (\lambda_y - \lambda_z)\omega_y\omega_z = M_x \\
 \lambda_y\dot{\omega}_y - (\lambda_z - \lambda_x)\omega_z\omega_x = M_x \\
@@ -88,7 +88,7 @@ where I is the inertia matrix of the body. If the body frame is aligned with the
 
 The time derivative of a quaternion can be related to the angular velocity of the target frame through the following:
 
-\begin{equation}
+\begin{equation} \label{quaternion}
    \dot{q} = \frac{1}{2}\begin{pmatrix}
       0 & \omega_z & -\omega_y & \omega_x \\
       -\omega_z & 0 & \omega_x & \omega_y \\

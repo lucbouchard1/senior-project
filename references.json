@@ -63,5 +63,20 @@
       "publisher": "Elsevier Ltd.",
       "title": "Orbital Mechanics for Engineering Students",
       "type": "book"
+   },
+   {
+      "id": "kalman",
+      "author": [
+         {
+            "family": "Labbe",
+            "given": "Roger R."
+         }
+      ],
+      "issued": {
+         "date-parts": [[ 2018 ]]
+      },
+      "publisher": "Self Published",
+      "title": "Kalman and Bayesian Filters in Python",
+      "type": "book"
    }
 ]
