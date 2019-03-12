@@ -1,4 +1,4 @@
-PAPER_SRC = paper/title.md paper/s1-intro.md paper/s2-physics.md paper/s3-kalman-filters.md paper/references.md
+PAPER_SRC = paper/title.md paper/s1-intro.md paper/s2-physics.md paper/s3-kalman-filter.md paper/s4-software-architecture.md paper/references.md
 PAPER_PDF = paper.pdf
 FLAGS = --toc 
 GEOM = -V geometry:margin=1in
