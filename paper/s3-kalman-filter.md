@@ -71,7 +71,7 @@ where $\vec{b} = (b_x, b_y, b_z)$ is the magnetic field measurement and $\vec{s}
 \vec{z} = \vec{h}(\vec{x}) + \vec{v}
 \end{equation}
 
-where $\vec{h}(\vec{x})$ computes the expected sensor readings from the state vector, and $\vec{v}$ is a random vector that describes uncertainties in sensor readings. The measurement model, $\vec{h}(\vec{x})$ is given by:
+where $\vec{h}(\vec{x})$ computes the expected sensor readings from the state vector, and $\vec{v}$ is a random vector that describes uncertainties in sensor readings. The measurement model, $\vec{h}(\vec{x})$, is given by:
 
 \begin{equation}
 \vec{z} \approx \vec{h}(\vec{x}) = \begin{pmatrix}
@@ -96,7 +96,7 @@ The equations described above are used in the standard EKF algorithm [@kalman]:
 
 #### Predict
 \begin{equation}
-\vec{x_-} = \vec{x}_+ + \vec{f}(\vec{x}_+)dt
+\vec{x}_- = \vec{x}_+ + \vec{f}(\vec{x}_+)dt
 \end{equation}
 \begin{equation}
 P_- = F P_+ F^T + Q
