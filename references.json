@@ -78,5 +78,34 @@
       "publisher": "Self Published",
       "title": "Kalman and Bayesian Filters in Python",
       "type": "book"
+   },
+   {
+      "id": "greg",
+      "author": [
+         {
+            "family": "Manyak",
+            "given": "Greg"
+         }
+      ],
+      "issued": {
+         "date-parts": [[ 2011, 6 ]]
+      },
+      "publisher": "California Polytechnic State University, San Luis Obispo",
+      "title": "Fault Tolerant and Flexible CubeSat Software Architecture",
+      "type": "thesis"
+   },
+   {
+      "id": "ooc",
+      "author": [
+         {
+            "family": "Schreiner",
+            "given": "Axel-Tobias"
+         }
+      ],
+      "issued": {
+         "date-parts": [[ 2018 ]]
+      },
+      "title": "Object-Oriented Programming With ANSI-C",
+      "type": "book"
    }
 ]
