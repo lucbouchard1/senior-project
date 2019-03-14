@@ -27,7 +27,7 @@ The system dynamics can also be described in state-space (discrete-space) as:
 \vec{x}_{k} = F\vec{x}_{k-1} + \vec{w}
 \end{equation}
 
-where $F$ is the state transition matrix, as it transitions the system from the $`k-1`$ state to the $`k`$ state. It is given by the matrix exponential. In this work, the predict step of the kalman filter is accomplished by propagating the dynamics using the Euler method. Using equations \ref{rotation} and \ref{quaternion}, we find the following equation for $\vec{f}(\vec{x})$:
+where $F$ is the state transition matrix, as it transitions the system from the $k-1$ state to the $k$ state. It is given by the matrix exponential. In this work, the predict step of the kalman filter is accomplished by propagating the dynamics using the Euler method. Using equations \ref{rotation} and \ref{quaternion}, we find the following equation for $\vec{f}(\vec{x})$:
 
 \begin{equation}
 \dot{\vec{x}} \approx \vec{f}(\vec{x}) = \begin{pmatrix}
