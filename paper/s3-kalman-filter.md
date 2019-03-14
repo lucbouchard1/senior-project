@@ -75,12 +75,12 @@ where $\vec{h}(\vec{x})$ computes the expected sensor readings from the state ve
 
 \begin{equation}
 \vec{z} \approx \vec{h}(\vec{x}) = \begin{pmatrix}
-R_{body\leftarrow eci} & 0 \\
-0 & R_{body\leftarrow eci} \\
+R_{body\leftarrow eci} & 0_{3x3} \\
+0_{3x3} & R_{body\leftarrow eci} \\
 \end{pmatrix} \vec{z}_{ECI}
 \end{equation}
 
-where $R_{body\leftarrow eci}$ is the rotation matrix that rotates from ECI to body and $\vec{z}_{ECI}$ is the measurement vector in ECI, given by some reference model that depends only on the position of the spacecraft, and not the attitude. The measurement matrix, $H$, is defined as the matrix that satisfies the following:
+where $R_{body\leftarrow eci}$ is the rotation matrix that rotates from ECI to body, $0_{3x3}$ represents the 3x3 zero matrix, and $\vec{z}_{ECI}$ is the measurement vector in ECI given by some reference model that depends only on the position of the spacecraft and not the attitude. The measurement matrix, $H$, is defined as the matrix that satisfies the following:
 
 \begin{equation}
 \vec{z} = H\vec{x} + \vec{v}
