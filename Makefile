@@ -1,6 +1,6 @@
 PAPER_SRC = paper/title.md paper/s1-intro.md paper/s2-physics.md paper/s3-kalman-filter.md paper/s4-software-architecture.md paper/references.md
 PAPER_PDF = paper.pdf
-FLAGS = --toc 
+FLAGS = --toc --number-sections
 GEOM = -V geometry:margin=1in
 BEFORE_BODY = utils/newpage.tex
 REFERENCES = references.json

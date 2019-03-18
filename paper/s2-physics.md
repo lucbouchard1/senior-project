@@ -2,7 +2,7 @@
 
 ## Reference Frames
 
-Three reference frames will be utilized throughout this paper, earth-centered inertial (ECI), local vertical local horizontal (LVLH), and body. Their definitions follow, and figure \ref{frames} shows 2D illustrations of the frames.
+Three reference frames will be utilized throughout this paper, earth-centered inertial (ECI), local vertical local horizontal (LVLH), and body. Their definitions follow, and Figure \ref{frames} shows 2D illustrations of the frames.
 
 ### ECI
 
@@ -20,7 +20,7 @@ The body frame is aligned geometrically with the spacecraft. The orthogonal set 
 
 ## Quaternions
 
-This paper will use quaternions to represent spacecraft attitude. Quaternions are four element vectors that can be used to represent a frame rotation. Thus the spacecraft's attitude will be represented as the frame transformation from ECI to body, or LVLH to body. In this paper, the last element of the four element vector will be the scalar component, and the first three will be the vector component. They will be notated as follows:
+This paper will use quaternions to represent spacecraft attitude. Quaternions are four element vectors that can be used to represent a frame rotation. Thus, the spacecraft's attitude will be represented as the frame transformation from ECI to body, or LVLH to body. In this paper, the last element of the four element vector will be the scalar component, and the first three will be the vector component. They will be notated as follows:
 
 \begin{equation}
 q = [q_i, q_j, q_k, q_r] = [\vec{q}, q_r]
@@ -30,7 +30,7 @@ To represent attitude, the quaternion elements will be defined as:
 
 \begin{equation}
 \begin{array}{l}
-\vec{q} = \vec{u}\sin(\frac{\theta}{2}) \\
+\vec{q} = \hat{u}\sin(\frac{\theta}{2}) \\
 q_r = \cos(\frac{\theta}{2})
 \end{array}
 \end{equation}
@@ -74,13 +74,13 @@ where $\vec{L}$ is the angular momentum vector of the body in the body frame, $\
 \vec{L} = I\vec{\omega}
 \end{equation}
 
-where I is the inertia matrix of the body. If the body frame is aligned with the principle axes of the body, then the inertia matrix becomes diagonal. Assuming the principle moments of inertia are given by $\lambda_x$, $\lambda_y$, and $\lambda_z$, equation (\ref{euler}) can be converted into component form:
+where $I$ is the inertia matrix of the body. If the body frame is aligned with the principle axes of the body, then the inertia matrix becomes diagonal. Assuming the principle moments of inertia are given by $\lambda_{xx}$, $\lambda_{yy}$, and $\lambda_{zz}$, equation (\ref{euler}) can be converted into component form:
 
 \begin{equation} \label{rotation}
 \begin{array}{l}
-\lambda_x\dot{\omega}_x - (\lambda_y - \lambda_z)\omega_y\omega_z = M_x \\
-\lambda_y\dot{\omega}_y - (\lambda_z - \lambda_x)\omega_z\omega_x = M_x \\
-\lambda_z\dot{\omega}_z - (\lambda_x - \lambda_y)\omega_x\omega_y = M_x
+\lambda_{xx}\dot{\omega}_x - (\lambda_{yy} - \lambda_{zz})\omega_y\omega_z = M_x \\
+\lambda_{yy}\dot{\omega}_y - (\lambda_{zz} - \lambda_{xx})\omega_z\omega_x = M_x \\
+\lambda_{zz}\dot{\omega}_z - (\lambda_{xx} - \lambda_{yy})\omega_x\omega_y = M_x
 \end{array}
 \end{equation}
 
@@ -89,7 +89,7 @@ where I is the inertia matrix of the body. If the body frame is aligned with the
 The time derivative of a quaternion can be related to the angular velocity of the target frame through the following:
 
 \begin{equation} \label{quaternion}
-   \dot{q} = \frac{1}{2}\begin{pmatrix}
+   \frac{dq}{dt} = \dot{q} = \frac{1}{2}\begin{pmatrix}
       0 & \omega_z & -\omega_y & \omega_x \\
       -\omega_z & 0 & \omega_x & \omega_y \\
       \omega_y & -\omega_x & 0 & \omega_z \\
