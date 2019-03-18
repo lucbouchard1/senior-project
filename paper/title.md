@@ -1,5 +1,5 @@
 ---
-title: Low-Cost, Reusable, and Testable Attitude Estimation Software for CubeSats
+title: Low-Cost, Reusable, and Testable Attitude Determination Software for CubeSats
 author: Luc Bouchard
 advisor: Dr. Matt Moelter
 institute: Department of Physics, California Polytechnic University SLO 
