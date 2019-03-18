@@ -37,8 +37,18 @@ This software utilizes a robust network of configuration files to allow specifyi
 
 ## Testing and Verification
 
-One of the largest challenges in developing ADC software is testing. It is impossible to fully recreate orbital conditions on earth, and even crude approximations are expensive--beyond the budget of an undergraduate satellite lab.
+Since it is impossible to fully recreate orbital conditions on earth, and even crude approximations are expensive, validating the performance of ADC software can be a challenge, especially for an undergraduate research lab with a small budget. For this reason, a software framework was developed so that all hardware interactions could be virtualized and modeled using a spacecraft dynamics simulator. The high-level architecture of this framework is shown in Figure \ref{sim}.
 
-![Infrastructure for testing the ADC software.\label{sim}](paper/img/sim.png){ width=60% }
+![ADC software testing framework architecture.\label{sim}](paper/img/sim.png){ width=60% }
 
-Hello world
+The core of the hardware virtualization happens within `libpolydrivers`, PolySat's hardware abstraction library used across its flight software. `libpolydrivers` abstracts all sensor and actuator hardware to a consistent interface. Thus, drivers were implemented for every sensor and actuator used by the ADC software so that, instead of interactive with physical hardware, the driver sends a JSON packet to a simulation server where the appropriate action is taken. For example, if the ADC software was attempting to interact with a magnetometer, the simulation server would respond with the current magnetic field estimate in the body frame for the given position. If the software was attempting to interact with a reaction wheel, the simulation server would model the induced torque.
+
+Because the hardware virtualization happens within the driver abstraction layer, the user must only change a configuration value to switch into simulation mode. No changes to the ADC software are required. This means that the actual flight ADC software build can be tested without any changes--all the logic to perform the simulation happens within the driver library, which is a dynamic library loaded at runtime. Furthermore, because the virtualization in network based (it sends a JSON request to an external server), the ADC software can be running on the resource-constrained flight hardware while the simulation server runs on an external computer, significantly expediting simulation time while further increasing flight fidelity.
+
+The simulation server is based off of NASA's spacecraft dynamics simulator entitled "42." 42 is a fast, comprehensive dynamics simulator written in C. A Python binding was written atop 42 so the server infrastructure could be built in a high level language, making server development much more flexible. Network requests are sent through ZMQ sockets as they are more flexible than standard sockets and have a wide array of platform and language support.
+
+### Simulation Control Flow
+
+When the ADC software is started in simulation mode, `libproc`, the core PolySat process library, is initialized to use "virtual time", which means the software executes as quickly as possible, ignoring any sleeps or delays, and keeps track of what the time would be if the process was executing in "normal time." Note that the user provides an initial time as a configuration value.
+
+Simultaneously, the simulation server is started as a separate process either on the same computer or on another external computer. The simulation server is provided with the spacecraft's initial conditions, and it is initialized to the same time as the ADC virtual time. When the ADC software reaches its first instance of hardware interaction, a JSON packet is sent through a ZMQ socket from the ADC software to the simulation server. The packet includes the current virtual time. When the simulation server receives this packet, it commands 42 to propagate forward to the virtual time specified in the packet and performs the expected action--either modeling an actuator or responding with a sensor reading. This process repeats for however many seconds the simulation was configured to execute.
