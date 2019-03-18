@@ -328,11 +328,31 @@ $if(subtitle)$
 \subtitle{$subtitle$}
 $endif$
 $if(author)$
-\author{$for(author)$$author$$sep$ \and $endfor$}
-$endif$
-$if(institute)$
-\providecommand{\institute}[1]{}
-\institute{$for(institute)$$institute$$sep$ \and $endfor$}
+\author
+{\\
+\\
+\\
+\\
+\\
+\\
+\\
+A Senior Project by
+\\
+$author$
+\\ 
+Advisor, $advisor$
+\\
+$institute$
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+}
 $endif$
 \date{$date$}
 $if(beamer)$
@@ -387,7 +407,9 @@ $if(lot)$
 \listoftables
 $endif$
 $if(lof)$
+\newpage
 \listoffigures
+\newpage
 $endif$
 $body$
 
