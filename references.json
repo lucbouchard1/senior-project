@@ -107,5 +107,27 @@
       },
       "title": "Object-Oriented Programming With ANSI-C",
       "type": "book"
+   },
+   {
+      "id": "early_kalman",
+      "author": [
+         {
+            "family": "Lefferts",
+            "given": "E.J."
+         },
+         {
+            "family": "Markley",
+            "given": "F.L."
+         },
+         {
+            "family": "Shuster",
+            "given": "M.D."
+         }
+      ],
+      "issued": {
+         "date-parts": [[ 1982 ]]
+      },
+      "title": "Kalman Filtering for Spacecrafts Attitude Estimation",
+      "type": "article"
    }
 ]

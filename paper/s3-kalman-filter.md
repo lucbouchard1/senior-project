@@ -65,7 +65,7 @@ The measurement vector of the EKF, $\vec{z}$ is given by:
 \vec{z} = (b_x, b_y, b_z, s_x, s_y, s_z)
 \end{equation}
 
-where $\vec{b} = (b_x, b_y, b_z)$ is the magnetic field measurement and $\vec{s} = (s_x, s_y, s_z)$ is a unit vector that points towards the sun (the solar angle measurement) all expressed in the body frame. We assume measurements made by the spacecraft at a particular attitude can be described by the following:
+where $\vec{b} = (b_x, b_y, b_z)$ is the magnetic field measurement and $\vec{s} = (s_x, s_y, s_z)$ is a unit vector that points towards the sun, which is provided by the solar angle sensor, all expressed in the body frame. We assume measurements made by the spacecraft at a particular attitude can be described by the following:
 
 \begin{equation}
 \vec{z} = \vec{h}(\vec{x}) + \vec{v}
