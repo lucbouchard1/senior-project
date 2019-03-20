@@ -7,7 +7,7 @@ To solve these challenges, an Extended Kalman Filter (EKF) was designed and impl
 
 ## Dynamics Model
 
-The filter used in this work uses a seven-dimensional state vector, $\vec{x}$ given by:
+The filter used in this work employs a seven-dimensional state vector, $\vec{x}$ given by:
 
 \begin{equation}
 \vec{x} = (\omega_x, \omega_y, \omega_z, q_r, q_i, q_j, q_k)
@@ -114,4 +114,4 @@ P_+ = (1 - KH)P_-
 \vec{x}_+ = \vec{x}_- + K(\vec{z} - \vec{h})
 \end{equation}
 
-where the $+$ and $-$ symbols denote the aposteriori (posterior) and apriori (prior) states respectively, $K$ is the Kalman gain matrix, $R$ is the sensor noise matrix, and $P$ is the state covariance matrix.
+where the $+$ and $-$ symbols denote the aposteriori (posterior) and apriori (prior) states respectively, $Q$ is the process noise matrix, $K$ is the Kalman gain matrix, $R$ is the sensor noise matrix, and $P$ is the state covariance matrix.
