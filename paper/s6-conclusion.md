@@ -13,9 +13,9 @@ Furthermore, the seven-dimensional filter employed in this work has a singular c
 
 # Acknowledgments
 
-I first want to thank all the PolySat faculty and students that came before me and layed the groundwork for this research, specifically Dr. Jordi Puig-Suari, Ryan Sellers, and Arash Mehrparvar.
+I first want to thank all the PolySat faculty and students that came before me and laid the groundwork for this research, specifically Dr. Jordi Puig-Suari, Ryan Sellers, and Arash Mehrparvar.
 
-I absolutely must thank Dr. John Bellardo for lending me his infinite wisdom not just in this project, but throughout my undergraduate career.
+I absolutely must thank Dr. John Bellardo for lending me his infinite wisdom not just for this project, but throughout my undergraduate career.
 
 Dr. Matt Moelter, thank you dearly for your mentorship over these last two quarters.
 
